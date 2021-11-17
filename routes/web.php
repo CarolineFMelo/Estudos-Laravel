@@ -110,5 +110,13 @@ Route::get('nome', [MeuControlador::class, 'getNome']);
 Route::get('idade', [MeuControlador::class, 'getIdade']);
 Route::get('multiplicar/{n1}/{n2}', [MeuControlador::class, 'multiplicar']);
 
+Route::get('produtos', function() {
+    return view('outras.produtos');
+})->name('produtos');
+
+Route::get('departamentos', function() {
+    return view('outras.departamentos');
+})->name('departamentos');
+
 // associando rotas e controladores com requisicoes http - todas as funções estão no arquivo ClienteControlador.php
 Route::resource('clientes', ClienteControlador::class);
