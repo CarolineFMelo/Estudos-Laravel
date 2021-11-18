@@ -23,9 +23,33 @@
             @endforeach
         </ul>
 
+        <hr>
+
+        @for($i=0; $i<10;$i++)
+            {{ $i }},
+        @endfor
+        <br>
+
+        @for($i=0; $i<count($clientes); $i++)
+            {{ $clientes[$i]['nome'] }},
+        @endfor
+        <br>
+
+        @foreach ($clientes as $c)
+            <p>
+                {{ $c['nome'] }} |
+                @if($loop->first)
+                    (primeiro) |
+                @endif
+                @if($loop->last)
+                    (último) |
+                @endif
+                ({{ $loop->index }}) - {{ $loop->iteration }} / {{ $loop->count }}
+            </p>
+        @endforeach
+
     @else
         <h4>Não existem clientes cadastrados.</h4>
-
     @endif
 
     @empty($clientes)
