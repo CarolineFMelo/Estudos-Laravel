@@ -118,5 +118,9 @@ Route::get('departamentos', function() {
     return view('outras.departamentos');
 })->name('departamentos');
 
+Route::get('opcoes/{opcao?}', function($opcao=null) {
+    return view('outras.opcoes', compact(['opcao']));
+})->name('opcoes');
+
 // associando rotas e controladores com requisicoes http - todas as funções estão no arquivo ClienteControlador.php
 Route::resource('clientes', ClienteControlador::class);
